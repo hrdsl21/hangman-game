@@ -1,16 +1,16 @@
 import random
 
 #lista haseł
-lista = ['góra', 'koń', 'dom', 'pies', 'Arek']
+lista = ['Mountain', 'horse', 'house', 'dog', 'hamster']
 
 #liczba żyć
 lifs = 6 
 #generator hasła
 random_password = random.choice(lista)
 list_gen = list(random_password)
+print(list_gen)
 
-
-print("Rozpoczynasz gre w wisielca")
+print("You start the hangman game")
 
 #Generator _____
 for i in range(len(random_password)):
@@ -18,12 +18,12 @@ for i in range(len(random_password)):
 
 
 while lifs > 0:
-    print(f"Pozostało ci {lifs} zyc ")
+    print(f"You have left {lifs} lifs ")
     print("")
-    print(f"hasło : {list_gen}")
+    print(f"Password : {list_gen}")
     print("")
 
-    answer = input("Podaj pierwsza liter dla słowa z listy ")
+    answer = input("Enter the first letter for a word from the list")
     if answer in random_password:
         #sprawdzamy czy i podmieniamy znaki na _
         for i in range(len(random_password)):
@@ -33,16 +33,12 @@ while lifs > 0:
             #sprawdzenie czy wygrałes   
             if list_gen == list(random_password):
                 print("")
-                print(f"Pozostało ci {lifs} zyc ")
-                print("")
-                print(f"hasło :  {random_password}")
-                print("")
-                print('wygrywasz')
+                print(f"You have left {lifs} lifs \n\nPassword :{random_password}\n\nYOU WIN")
                 exit()
     else:
         lifs -= 1 
         if lifs == 0:
-            print('Teraz oddasz życie na szubienicy')
+            print('Now you will give your life on the gallows')
             print('Try again')
         
 
